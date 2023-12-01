@@ -21,18 +21,7 @@ fun getLastDecimal(input: String) =
     getFirstDecimal(input.reversed())
 
 fun main() {
-    val output22 = getInput(1)
-        .map {
-            val that = translateToDigits(it)
-            println("$it -> $that -> ${getFirstDecimal(that)} & ${getLastDecimal(that)} => ${getFirstDecimal(that) + getLastDecimal(that)}")
-            translateToDigits(it)
-        }
-        .map { getFirstDecimal(it) + getLastDecimal(it) }
-        .sumOf { it.toInt() }
-
-    println(output22)
-
-    /* // First star
+     // First star
      val output = getInput(1)
          .map { getFirstDecimal(it) + getLastDecimal(it) }
          .sumOf { it.toInt() }
@@ -41,9 +30,15 @@ fun main() {
 
      // Second start
      val output2 = getInput(1)
-         .map { translateToDigits(it) }
+         .map {
+             // debug logging
+             val that = translateToDigits(it)
+             println("$it -> $that -> ${getFirstDecimal(that)} & ${getLastDecimal(that)} => ${getFirstDecimal(that) + getLastDecimal(that)}")
+
+             translateToDigits(it)
+         }
          .map { getFirstDecimal(it) + getLastDecimal(it) }
          .sumOf { it.toInt() }
 
-     println(output2)*/
+     println(output2)
 }
